@@ -1,0 +1,34 @@
+<h4>Todo Item Details</h4>
+
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <% if @item.priority == 0 %>
+  Low
+  <% elsif @item.priority == 1 %>
+  Medium
+  <% elsif @item.priority == 2 %>
+  High
+  <% else %>
+  Undefined priority
+  <% end %>
+</p>
+
+<p>
+  <strong>Due Date:</strong>
+  <%= @item.due_date %>
+</p>
+
+<p>
+  <%= link_to 'Back', items_path %><br>
+  <%= link_to 'Edit', edit_item_path(@item) %>
+</p>

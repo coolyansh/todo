@@ -1,0 +1,65 @@
+<h3>ToDo List</h3>
+
+<h4>Current items</h4>
+<table cellpadding="6" >
+  <tr>
+    <th>Title</th>
+    <th>Priority</th>
+    <th>Due Date</th>
+  </tr>
+
+  <% @items_current.each do |item| %>
+    <tr>
+      <td><%= item.title %></td>
+      <td>
+        <% if item.priority == 0 %>
+        Low
+        <% elsif item.priority == 1 %>
+        Medium
+        <% elsif item.priority == 2 %>
+        High
+        <% else %>
+        Undefined priority
+        <% end %>
+      </td>
+      <td><%= item.due_date %></td>
+      <td><%= link_to 'Show', item_path(item) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      <td><%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure ?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+<h4>Expired items</h4>
+<table cellpadding="6" >
+  <tr>
+    <th>Title</th>
+    <th>Priority</th>
+    <th>Due Date</th>
+  </tr>
+
+  <% @items_expired.each do |item| %>
+    <tr>
+      <td><%= item.title %></td>
+      <td>
+        <% if item.priority == 0 %>
+        Low
+        <% elsif item.priority == 1 %>
+        Medium
+        <% elsif item.priority == 2 %>
+        High
+        <% else %>
+        Undefined priority
+        <% end %>
+      </td>
+      <td><%= item.due_date %></td>
+      <td><%= link_to 'Show', item_path(item) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      <td><%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure ?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br><br>
+<%= link_to 'Back to Home', root_path %>
